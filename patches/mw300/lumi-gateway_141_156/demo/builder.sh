@@ -1,0 +1,4 @@
+arm-none-eabi-objcopy -I binary -O elf32-littlearm --set-start 0x1f003741 --adjust-vma 0x100000 --binary-architecture arm --rename-section .data=.text,contents,alloc,load,readonly,code --add-section .text2=section2_0x1f003740.bin --set-section-flags .text2=contents,alloc,load,readonly,code --change-section-address .text2=0x1f003740 --add-section .text3=section3_0x20000040.bin --set-section-flags .text3=contents,alloc,load,readonly,code --change-section-address .text3=0x20000040 section1_0x100000.bin 31ed49d49a6e4727c84d24192ce944a6_upd_lumi.gateway.v3.bin_patched.elf
+arm-none-eabi-ld 31ed49d49a6e4727c84d24192ce944a6_upd_lumi.gateway.v3.bin_patched.elf -e 0x1f003741 -T 31ed49d49a6e4727c84d24192ce944a6_upd_lumi.gateway.v3.bin_script.lds
+./axf2firmware a.out nexmontest_upd_lumi.gateway_141_151.v3.bin
+rm a.out
